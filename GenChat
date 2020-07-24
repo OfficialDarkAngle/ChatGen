@@ -1,0 +1,67 @@
+clear                                                                  f=9                                                                    for var in f ; do
+
+for col in {1..7} ; do
+
+printf -v $var$col %b "\x1b[${!var}${col}m"
+
+done
+
+done                                                                   printf "%s<%s|%s=====================================%s|%s>%s \n" ${f4} ${f1} ${f3} ${f1} ${f4} ${n}
+
+printf " %s|        %sGENERATOR LINK CHAT          %s|%s \n" ${f1} ${f6} ${f1} ${n}
+
+printf " %s|                                     %s|%s \n" ${f1} ${f1} ${n}
+
+printf " %s| %sAuthor    %s: %sNoiz ID                 %s|%s \n" ${f1} ${f2} ${f5} ${f7} ${f1} ${n}
+
+printf " %s| %sContact   %s: %s082125068665            %s|%s \n" ${f1} ${f2} ${f5} ${f7} ${f1} ${n}                                           printf " %s| %sTeam Code %s: %sPARANOID CYBER          %s|%s \n" ${f1} ${f2} ${f5} ${f7} ${f1} ${n}
+
+printf " %s|           %s: %s【ᏒᎶ4】ʙʟᴀᴄᴋ  ◤coᴅᴇʀ◢ ツ%s|%s \n" ${f1} ${f2} ${f5} ${f7} ${f1} ${n}
+
+printf " %s|           %s: %sBLACK CODER CRUSH bbb   %s|%s \n" ${f1} ${f2} ${f5} ${f7} ${f1} ${n}
+
+printf " %s|  %sAll Member 【ᏒᎶ4】ʙʟᴀᴄᴋ  ◤coᴅᴇʀ◢ ツ%s|%s \n" ${f1} ${f6} ${f1} ${n}
+
+printf "%s<%s|%s=====================================%s|%s>%s \n" ${f4} ${f1} ${f3} ${f1} ${f4} ${n}
+
+printf "\n"
+
+printf "%s[%s*%s] %sMasukan Nomor %s: %s" ${f2} ${f7} ${f2} ${f7} ${f5} ${f6}
+
+read nomor
+
+nomor=$(echo $nomor | sed 's/^0/62/g')
+
+printf "%s[%s*%s] %sMasukan Text %s: %s" ${f2} ${f7} ${f2} ${f7} ${f5} ${f6}
+
+read text
+
+text=$(echo $text | tr [[:space:]] '+' | sed 's/+$//g')
+
+link="https://api.whatsapp.com/send?phone=$nomor&text=$text"
+
+printf "\n"
+
+printf "%s[%s*%s] %sLink %s:%s %s" ${f4} ${f2} ${f4} ${f6} ${f5} ${f7} "$link"
+
+printf "\n\n"
+
+printf "%s[%s*%s] %sMau Langsung Kirim ? %s[%sY%s/%sn%s] %s:%s " ${f4} ${f2} ${f4} ${f6} ${f2} ${f4} ${f7} ${f3} ${f2} ${f5} ${f7}
+
+read -rn1 kirim
+
+case $kirim in
+
+[Yy])
+
+termux-open-url "$link"; exit 0 ;;
+
+[Nn])
+
+printf "%s[%s#%s] %sBye :* " ${f2} ${f3} ${f2} ${f2}; exit 0 ;;
+
+*)
+
+printf "%s[%s#%s] %sBye :* " ${f2} ${f3} ${f2} ${f2}; exit 0 ;;
+
+esac
